@@ -6,21 +6,23 @@ class App extends Component {
   {
     super();
     this.state={
-      name:"Vipul"
+      count:0
     }
-    // console.warn("constructor")
+    console.warn("constructor")
   }
-  componentDidMount()
+  componentDidUpdate(preProps,preState,snapshot )
   {
-    console.warn("Componentdidimount")
+    console.warn("componentDidUpdate",preState)
   }
   render()
   {
     console.warn("render")
     return (
       <div className="App">
-        <h1>Hello {this.state.name}</h1>
-        <button onClick={()=>{this.setState({name:"rawat"})}}>Update</button>
+        <h1>Hello {this.state.count}</h1>
+        <button onClick={()=>{this.setState({count:this.state.count+1})}}>Update</button>
+        <br></br>
+        <button onClick={()=>{this.setState({count:this.state.count-1})}}>lesses</button>
       </div>
     );
   }
