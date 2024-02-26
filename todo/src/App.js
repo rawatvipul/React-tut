@@ -1,31 +1,19 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-
-class App extends Component {
-  constructor()
-  {
-    super();
-    this.state={
-      count:0
-    }
-    console.warn("constructor")
-  }
-  componentDidUpdate(preProps,preState,snapshot )
-  {
-    console.warn("componentDidUpdate",preState)
-  }
-  render()
-  {
-    console.warn("render")
-    return (
-      <div className="App">
-        <h1>Hello {this.state.count}</h1>
-        <button onClick={()=>{this.setState({count:this.state.count+1})}}>Update</button>
-        <br></br>
-        <button onClick={()=>{this.setState({count:this.state.count-1})}}>lesses</button>
-      </div>
-    );
-  }
+import Student from './Student';
+function App()
+{
+  const [data, setData] = useState(10)
+  const [count, setCount] = useState(100)
+  
+  return(
+    <div>
+      
+      <Student count = {count} data={data}/>
+      <button onClick={()=>setCount(count+1)}>Update Count</button>
+      <button onClick={()=>setData(data+1)}>Update Data</button>
+    </div>
+  )
 }
 
 export default App;
